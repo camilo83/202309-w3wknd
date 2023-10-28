@@ -1,54 +1,20 @@
-# Week3
+# Pokémon
 
-Código de Week1 del bootcamp
+Esta aplicación tendrá tres páginas:
 
-- TS...
+Todos los pokémon
+Detalle de pokémon
+El listado de todos los pokémon se alimentará de la PokéAPI, y deberá ir paginado. El listado incluirá el nombre del pokemon y su imagen y deberá ir acompañado de dos botones, para avanzar y retroceder de página. También debe mostrar el total de pokèmon mostrados vs. el total de pokèmon que existen (p.e. 10/1000).
 
-## Installation
+El usuario debería poder ir al detalle de un pokémon, donde se le mostrarán más datos. A esta página de detalle se llega pasando una id por la URL (la id del pokémon que queremos ver).
 
-- TS
+Extra
+Añadir una tercera página:
 
-```shell
-npm i -D typescript
-```
+Mis pokémon
+El usuario debe poder añadir los pokémon que quiera a su listado local. El listado de Mis pokémon se alimentará de [una API local]. El usuario debería poder eliminar pokémon de su listado local, y también modificar algún/unos dato/s.
 
-- config TS
+Desde los favoritos, también se puede acceder a la página de detalle.
 
-```shell
-npx tsc --init
-```
-
-- eslint & TS
-
-```shell
-npx eslint --init
-
-Consecuencia
-npm i -D eslint @typescript-eslint/eslint-plugin @typescript-eslint/parser eslint-config-xo
-```
-
-- eslint + prettier
-
-```shell
-npm i -D eslint-config-prettier
-```
-
-- Jest
-
-```shell
-
-npm i -D jest ts-jest @types/jest @types/node jest-ts-webcompat-resolver
-npm i -D identity-obj-proxy
-```
-
-jest-DOM environment
-
-```shell
-npm i -D jest-environment-jsdom 
-```
-
-Testing-library
-
-```shell
-npm i -D @testing-library/dom @testing-library/jest-dom @testing-library/user-event
-```
+Features
+Opcional: BEM + sass Vite HTML semántico Testing
