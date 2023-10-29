@@ -23,8 +23,8 @@ export class List extends Component {
   }
 
   handleNextPage() {
-    if (this.actualPage === 300) {
-      this.actualPage = 300;
+    if (this.actualPage === 65) {
+      this.actualPage = 65;
     } else {
       this.actualPage += 1;
     }
@@ -70,11 +70,11 @@ export class List extends Component {
 
   createTemplate() {
     return `
-     <section class="pokes">
-        <h3 class="page/number">Página 1/10</h3>
+     <section class="poke_list">
+        <p class="pagenumber">Página ${this.actualPage}/65</p>
+        <img role = "button" class = "previousPage" src="./src/public/previous-arrow.png" alt="Previous" height="60" width="60">
+        <img role = "button" class = "nextPage" src="./src/public/next-arrow.png" alt="Next" height="60" width="60">
         <ul class="poke-list"></ul>
-        <button class="previousPage">ATRAS</button>
-        <button class="nextPage">ADELANTE</button>
       </section>
     `;
   }

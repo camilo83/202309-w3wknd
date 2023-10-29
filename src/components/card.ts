@@ -11,18 +11,27 @@ export class Card extends Component {
     this.render();
   }
 
+  showPokeInfo() {}
+
   render() {
     super.render();
+    const pokeDetail = this.element.querySelector('.pokemon_card');
+    if (pokeDetail) {
+      pokeDetail.addEventListener('click', this.showPokeInfo.bind(this));
+    }
   }
 
   createTemplate() {
     const id = this.pokemon.url.split('/').filter(Boolean).pop();
+
     return `
     <li class="pokemon_card">
-    <p>${id}</p>
-      <img src="https://raw.githubusercontent.com/PokeAPI/sprites/master/sprites/pokemon/versions/generation-v/black-white/animated/${id}.gif" height="120" width="120">
-      <h4 class="poke_name">${this.pokemon.name.toUpperCase()}</h4>
-    </li>
+      <p>${id}</p>
+      <a href="details.html?pokemonId=${id}">
+        <img src="https://raw.githubusercontent.com/PokeAPI/sprites/master/sprites/pokemon/versions/generation-v/black-white/animated/${id}.gif" height="120" width="120">
+        <h4 class="poke_name">${this.pokemon.name.toUpperCase()}</h4>
+      </a>
+  </li>
       `;
   }
 }
