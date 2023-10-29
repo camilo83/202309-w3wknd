@@ -16,10 +16,12 @@ export class Card extends Component {
   }
 
   createTemplate() {
+    const id = this.pokemon.url.split('/').filter(Boolean).pop();
     return `
     <li class="pokemon_card">
-      <h4 class="poke_name">${this.pokemon.name}</h4>
-      <p class="poke_url">${this.pokemon.url}</p>
+    <p>${id}</p>
+      <img src="https://raw.githubusercontent.com/PokeAPI/sprites/master/sprites/pokemon/versions/generation-v/black-white/animated/${id}.gif" height="120" width="120">
+      <h4 class="poke_name">${this.pokemon.name.toUpperCase()}</h4>
     </li>
       `;
   }

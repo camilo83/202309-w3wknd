@@ -1,7 +1,7 @@
 import { getPokes } from '../data/repo';
-/* A import { Card } from './card'; */
 import { Component } from './components';
 import '../styles.scss';
+import { Card } from './card';
 
 export class List extends Component {
   constructor(selector: string) {
@@ -17,10 +17,11 @@ export class List extends Component {
     getPokes()
       .then((result) => {
         console.log('promesa resuelta', result);
-        console.log(
-          'una parte de la promesa respuesta - array pokemons',
-          result.results
-        ); // Aquí puedes trabajar con los datos resueltos
+        const data = result.results;
+        console.log(data);
+        for (let i = 0; i < 20; i++) {
+          new Card('ul.poke-list', data[i]);
+        }
       })
       .catch((error) => {
         console.error('Error:', error);
