@@ -4,22 +4,62 @@ import '../styles.scss';
 import { Card } from './card';
 
 export class List extends Component {
+  actualPage: number;
   constructor(selector: string) {
     super(selector);
+    this.actualPage = 1;
+    this.render();
+  }
+
+  handlePreviousPage() {
+    if (this.actualPage === 1) {
+      this.actualPage = 1;
+    } else {
+      this.actualPage -= 1;
+    }
+
+    this.clear();
+    this.render();
+  }
+
+  handleNextPage() {
+    if (this.actualPage === 300) {
+      this.actualPage = 300;
+    } else {
+      this.actualPage += 1;
+    }
+
+    this.clear();
     this.render();
   }
 
   async render() {
     this.template = this.createTemplate();
     super.render();
-    console.log('funcion', getPokes);
-    console.log('funcion', getPokes());
+    const previousPage = this.element.querySelector('.previousPage');
+    if (previousPage) {
+      previousPage.addEventListener(
+        'click',
+        this.handlePreviousPage.bind(this)
+      );
+    }
+
+    const nextPage = this.element.querySelector('.nextPage');
+    if (nextPage) {
+      nextPage.addEventListener('click', this.handleNextPage.bind(this));
+    }
+
     getPokes()
       .then((result) => {
-        console.log('promesa resuelta', result);
         const data = result.results;
-        console.log(data);
-        for (let i = 0; i < 20; i++) {
+
+        console.log(this.actualPage);
+        for (
+          let i = (this.actualPage - 1) * 20;
+          i < this.actualPage * 20;
+          i++
+        ) {
+          console.log(this.actualPage);
           new Card('ul.poke-list', data[i]);
         }
       })
@@ -33,6 +73,8 @@ export class List extends Component {
      <section class="pokes">
         <h3 class="page/number">Página 1/10</h3>
         <ul class="poke-list"></ul>
+        <button class="previousPage">ATRAS</button>
+        <button class="nextPage">ADELANTE</button>
       </section>
     `;
   }
