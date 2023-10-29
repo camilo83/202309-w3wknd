@@ -1,0 +1,64 @@
+body {
+  font-size: 1rem;
+  background-color: purple;
+  header {
+    display: flex;
+    justify-content: center;
+    margin-bottom: 0;
+    padding-bottom: 0;
+    h1 {
+      position: absolute;
+      z-index: 0;
+      color: transparent;
+    }
+  }
+  .poke_list {
+    text-align: center;
+    margin-top: 0px;
+    ul {
+      display: grid;
+      list-style-type: none;
+      grid-template-columns: repeat(4, 1fr);
+      gap: 1rem;
+      padding-right: 2rem;
+    }
+    .pagenumber {
+      font-size: 3rem;
+      padding-left: 2rem;
+      margin-top: 0px;
+      color: yellow;
+      font-weight: bold;
+    }
+  }
+
+  li {
+    border: 3px solid black;
+    border-radius: 2rem;
+    padding: 0.5rem;
+    background-color: plum;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    p {
+      font-size: 2rem;
+    }
+    a {
+      color: black;
+      text-decoration: none;
+    }
+  }
+
+  footer {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    adress {
+      font-size: 2rem;
+      color: yellow;
+      font-weight: bold;
+    }
+    img {
+      height: 4rem;
+    }
+  }
+}
