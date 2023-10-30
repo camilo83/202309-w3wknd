@@ -15,7 +15,7 @@ export class Footer extends Component {
   createTemplate() {
     return ` 
     <footer>
-      <adress>camiloisazag@hotmail.com</adress>
+      <address>camiloisazag@hotmail.com</address>
       <img src="./src/public/header.png" alt="Pokémon Pixel Logo">
     </footer>
     `;
